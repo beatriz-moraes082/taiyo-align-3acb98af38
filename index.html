@@ -485,11 +485,9 @@ td:first-child{font-weight:600}
 <section id="queda" style="background:var(--surface)">
  <div class="wrap">
  <div class="eyebrow">Campanhas · o que mudou</div>
- <h2>O lead continuou chegando.<br>A venda, não.</h2>
  <p class="lede">Junho gerou <b>157 leads, mais que abril</b>, por um CPL até menor,
  e com investimento praticamente igual. E o funil de mídia fechou <b>1 venda contra
- 8</b>. O topo não explica isso. <b>O mix explica</b>, e ele é nosso. O Syonet
- confirma que não foi só com a gente: a loja inteira caiu de 36 para 7.</p>
+ 8</b>.</p>
 
  <div class="tscroll">
  <table>
@@ -498,11 +496,9 @@ td:first-child{font-weight:600}
  </table>
  </div>
  <p class="lede" style="margin-top:14px;font-size:13px">
- As seis primeiras colunas são <b>só mídia</b>: leads dos nossos anúncios, registrados
+ As sete primeiras colunas são <b>só mídia</b>: leads dos nossos anúncios, registrados
  no Kommo, e as vendas que saíram deles. A última coluna é a loja inteira, no Syonet,
- e serve só de contexto: <b>não entra na conta do custo por venda</b>. Vale saber que
- o Kommo registra menos venda do que a loja fecha, então <b>o custo por venda acima é
- um teto</b>, o real é melhor. Fevereiro e março não têm Syonet exportado.
+ e serve só de contexto: <b>não entra na conta do custo por venda</b>.
  </p>
 
  <div class="pullwrap">
@@ -971,7 +967,7 @@ td:first-child{font-weight:600}
  <div class="wm" style="font-size:22px">trilha<i>•</i></div>
  <p style="margin-top:18px;max-width:70ch">
  <b>Fontes.</b> Vendas reais da loja, mídia e origem: relatório "Funil de Vendas" do
- Syonet, exportado em 16/07/2026, referente a abril, maio e junho, todos os canais.
+ Syonet, exportado em 16/07/2026, referente a janeiro a julho de 2026, todos os canais.
  Funil digital, conversão, tempo de perda e repasse: API do Kommo (pipeline "Novos"),
  leads criados entre 01/02 e 16/07/2026. Investimento, CPL e criativos: API do Meta,
  contas Taiyo Novos e Taiyo Pós-vendas. Padrões de atendimento: 9 gravações do Syonet
@@ -983,10 +979,9 @@ td:first-child{font-weight:600}
  <b>Ressalvas.</b> O volume de oportunidades do Syonet não é comparável mês a mês:
  cada mês concentrou o registro numa mídia diferente (abril em WhatsApp, maio em
  "sem mídia"). As vendas fechadas são comparáveis e são a base desta análise.
- O custo de mídia por venda divide todo o investimento pelas vendas de todos os
- canais, inclusive balcão: é um teto de referência, não uma atribuição. Nenhum dos
- dois sistemas permite hoje ligar uma campanha a uma venda. Fevereiro e março não
- têm Syonet exportado. As imagens da seção de referências são direção criativa de
+ O custo por venda usa só as vendas registradas no Kommo; como o Kommo registra menos
+ venda do que a loja fecha, é um teto e o real é melhor. Nenhum dos dois sistemas
+ permite hoje ligar uma campanha a uma venda. As imagens da seção de referências são direção criativa de
  terceiros, não arte final.</p>
  </div>
 </footer>
@@ -1013,12 +1008,12 @@ tb.addEventListener('click', function(){
 
 /* ---------- data ---------- */
 var MESES=[
- {m:'Fevereiro',s:'228 leads',leads:228,spend:5255,cpl:23.05,vendas:7,conv:3.07,cpv:751,loja:null,ttl:'74,3h'},
- {m:'Março',s:'161 leads',leads:161,spend:9187,cpl:57.06,vendas:6,conv:3.73,cpv:1531,loja:null,ttl:'4,4h'},
+ {m:'Fevereiro',s:'228 leads',leads:228,spend:5255,cpl:23.05,vendas:7,conv:3.07,cpv:751,loja:14,ttl:'74,3h'},
+ {m:'Março',s:'161 leads',leads:161,spend:9187,cpl:57.06,vendas:6,conv:3.73,cpv:1531,loja:18,ttl:'4,4h'},
  {m:'Abril',s:'144 leads',leads:144,spend:7608,cpl:52.83,vendas:8,conv:5.56,cpv:951,loja:19,ttl:'5,0h',peak:1},
  {m:'Maio',s:'222 leads',leads:222,spend:17066,cpl:76.87,vendas:5,conv:2.25,cpv:3413,loja:36,ttl:'10,4h'},
  {m:'Junho',s:'157 leads',leads:157,spend:9009,cpl:57.38,vendas:1,conv:0.64,cpv:9009,loja:7,ttl:'44,2h',dead:1},
- {m:'Julho',s:'63 leads · parcial',leads:63,spend:3201,cpl:50.82,vendas:1,conv:1.59,cpv:3201,loja:null,ttl:'44,8h',parcial:1}
+ {m:'Julho',s:'63 leads · parcial',leads:63,spend:3201,cpl:50.82,vendas:1,conv:1.59,cpv:3201,loja:5,ttl:'44,8h',parcial:1}
 ];
 
 var FUNIL={
@@ -1389,7 +1384,7 @@ if(ct&&tc){
 var CONF=[
  {t:'alto',lab:'Verificável na fonte',desc:'Puxado direto da API, do relatório do Syonet ou lido na gravação. Reproduzível a qualquer momento.',
  itens:[
- 'Vendas reais da loja: 19 em abril, 36 em maio, 7 em junho (Syonet, todos os canais)',
+ 'Vendas reais da loja, jan a jul: 24, 14, 18, 19, 36, 7 e 5 (Syonet, todos os canais)',
  'Investimento, CPL e mix de campanha (API do Meta, coleta de 16/07)',
  'Custo de mídia por venda do funil pago: R$ 951 em abril e R$ 9.009 em junho',
  'Move Brasil em junho: 126 oportunidades, 89 negociações, zero fechamentos (Syonet)',
