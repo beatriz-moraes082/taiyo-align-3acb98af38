@@ -114,6 +114,16 @@ h2{font-size:clamp(28px, 4vw, 44px);margin-bottom:14px}
 .mval s{display:block;font-size:10px;color:var(--text2);font-weight:500;text-decoration:none;
  line-height:1.45;margin-top:3px}
  .mval s b{color:var(--text);font-weight:700}
+ .mval s .mc,.mval s .mv{display:block}
+@media(max-width:760px){
+ .mrow{grid-template-columns:1fr auto;gap:8px 14px;padding:15px 0;align-items:baseline}
+ .mrow .mn{grid-column:1;grid-row:1}
+ .mrow .mval{grid-column:2;grid-row:1}
+ .mrow .bar{grid-column:1/-1;grid-row:2;height:20px}
+ .mval s{display:inline;margin-top:0}
+ .mval s .mc,.mval s .mv{display:inline}
+ .mval s .mv::before{content:" · "}
+}
 
 /* ---------- funnel ---------- */
 .fwrap{display:grid;grid-template-columns:1fr 320px;gap:40px;margin-top:40px;align-items:start}
@@ -1128,8 +1138,9 @@ MESES.forEach(function(x){
  b.type='button';
  b.innerHTML='<div class="mn">'+x.m+'<s>'+x.s+'</s></div>'+
  '<div class="bar"><i style="width:0"></i></div>'+
- '<div class="mval num">'+x.vendas+' <s><b>'+x.conv.toFixed(2).replace('.',',')+'%</b> de conversão'+
- '<br>R$ '+x.cpv.toLocaleString('pt-BR')+' por venda</s></div>';
+ '<div class="mval num">'+x.vendas+' <s>'+
+ '<span class="mc"><b>'+x.conv.toFixed(2).replace('.',',')+'%</b> de conversão</span>'+
+ '<span class="mv">R$ '+x.cpv.toLocaleString('pt-BR')+' por venda</span></s></div>';
  b.addEventListener('click',function(){
  if(FUNIL[x.m]) setFunil(x.m);
  document.getElementById('crm').scrollIntoView({behavior:'smooth'});
