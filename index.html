@@ -498,14 +498,16 @@ td:first-child{font-weight:600}
 
  <div class="tscroll">
  <table>
- <thead><tr><th>Mês</th><th>Leads</th><th>Investimento (fundo)</th><th>CPL</th><th>Vendas de mídia</th><th>Conversão</th><th>Custo por venda</th><th>Loja toda (contexto)</th></tr></thead>
+ <thead><tr><th>Mês</th><th>Leads</th><th>Investimento (fundo)</th><th>CPL</th><th>Vendas de mídia</th><th>Conversão</th><th>Custo por venda</th><th>Receita</th><th>ROAS</th><th>Loja toda (contexto)</th></tr></thead>
  <tbody id="tabmes"></tbody>
  </table>
  </div>
  <p class="lede" style="margin-top:14px;font-size:13px">
- As sete primeiras colunas são <b>só mídia</b>: leads dos nossos anúncios, registrados
- no Kommo, e as vendas que saíram deles. A última coluna é a venda total da loja, todos os canais,
- e serve só de contexto: <b>não entra na conta do custo por venda</b>.
+ Tudo até <b>ROAS</b> é só mídia: leads dos nossos anúncios, registrados no Kommo, e
+ as vendas que saíram deles. <b>Investimento, CPL, custo por venda e ROAS usam só
+ campanhas de fundo de funil</b>; meio de funil e marca ficam de fora. A última
+ coluna é a venda total da loja, todos os canais, e serve só de contexto:
+ <b>não entra em nenhuma conta acima</b>.
  </p>
 
  <div class="pullwrap">
@@ -520,21 +522,7 @@ td:first-child{font-weight:600}
  </div>
  </div>
 
- <h3 style="font-size:19px;margin-top:44px">Receita e ROAS</h3>
- <div class="tscroll">
- <table>
- <thead><tr><th>Mês</th><th>Receita registrada no Kommo</th><th>ROAS</th></tr></thead>
- <tbody id="tabmeta"></tbody>
- </table>
- </div>
- <p class="lede" style="margin-top:16px;font-size:13.5px">
- O CPL e o custo por venda usam só o investimento em <b>campanhas de fundo de funil</b>;
- meio de funil e marca ficam de fora. O ROAS abaixo compara a receita com esse mesmo
- investimento de fundo. <b>E este ROAS está subestimado</b>: a receita vem do Kommo,
- que registrou 8 das 19 vendas de abril e 1 das 7 de junho. O retorno real é maior
- do que a tabela mostra, e a gente não consegue provar quanto. <b>É o mesmo problema
- de rastreamento, agora custando a favor de vocês.</b>
- </p>
+ 
 
  <div class="pullwrap" style="margin-top:44px">
  <div>
@@ -1014,12 +1002,12 @@ tb.addEventListener('click', function(){
 
 /* ---------- data ---------- */
 var MESES=[
- {m:'Fevereiro',s:'228 leads',leads:228,spend:5255,cpl:23.05,vendas:7,conv:3.07,cpv:751,loja:51,ttl:'74,3h'},
- {m:'Março',s:'161 leads',leads:161,spend:9187,cpl:57.06,vendas:6,conv:3.73,cpv:1531,loja:70,ttl:'4,4h'},
- {m:'Abril',s:'144 leads',leads:144,spend:7608,cpl:52.83,vendas:8,conv:5.56,cpv:951,loja:71,ttl:'5,0h',peak:1},
- {m:'Maio',s:'222 leads',leads:222,spend:17066,cpl:76.87,vendas:5,conv:2.25,cpv:3413,loja:56,ttl:'10,4h'},
- {m:'Junho',s:'157 leads',leads:157,spend:9009,cpl:57.38,vendas:1,conv:0.64,cpv:9009,loja:37,ttl:'44,2h',dead:1},
- {m:'Julho',s:'63 leads · parcial',leads:63,spend:3201,cpl:50.82,vendas:1,conv:1.59,cpv:3201,loja:18,ttl:'44,8h',parcial:1}
+ {m:'Fevereiro',s:'228 leads',leads:228,spend:5255,cpl:23.05,vendas:7,conv:3.07,cpv:751,rec:1153300,roas:219.5,loja:51,ttl:'74,3h'},
+ {m:'Março',s:'161 leads',leads:161,spend:9187,cpl:57.06,vendas:6,conv:3.73,cpv:1531,rec:908516,roas:98.9,loja:70,ttl:'4,4h'},
+ {m:'Abril',s:'144 leads',leads:144,spend:7608,cpl:52.83,vendas:8,conv:5.56,cpv:951,rec:1315282,roas:172.9,loja:71,ttl:'5,0h',peak:1},
+ {m:'Maio',s:'222 leads',leads:222,spend:17066,cpl:76.87,vendas:5,conv:2.25,cpv:3413,rec:807200,roas:47.3,loja:56,ttl:'10,4h'},
+ {m:'Junho',s:'157 leads',leads:157,spend:9009,cpl:57.38,vendas:1,conv:0.64,cpv:9009,rec:171900,roas:19.1,loja:37,ttl:'44,2h',dead:1},
+ {m:'Julho',s:'63 leads · parcial',leads:63,spend:3201,cpl:50.82,vendas:1,conv:1.59,cpv:3201,rec:159800,roas:49.9,loja:18,ttl:'44,8h',parcial:1}
 ];
 
 var FUNIL={
@@ -1152,17 +1140,18 @@ MESES.forEach(function(x){
 
 var tb2=document.getElementById('tabmes');
 MESES.forEach(function(x){
- var na='<span style="color:var(--text2);font-weight:400">n/d</span>';
+ var cor = x.peak?'var(--laranja)' : x.dead?'var(--crit)' : 'inherit';
  var tr=document.createElement('tr');
  tr.innerHTML='<td>'+x.m+(x.parcial?' <span style="font-weight:400;color:var(--text2)">(parcial)</span>':'')+'</td>'+
  '<td>'+x.leads+'</td>'+
  '<td>R$ '+x.spend.toLocaleString('pt-BR')+'</td>'+
  '<td>R$ '+x.cpl.toFixed(2).replace('.',',')+'</td>'+
- '<td style="font-weight:700;color:'+(x.peak?'var(--laranja)':x.dead?'var(--crit)':'inherit')+'">'+x.vendas+'</td>'+
+ '<td style="font-weight:700;color:'+cor+'">'+x.vendas+'</td>'+
  '<td>'+x.conv.toFixed(2).replace('.',',')+'%</td>'+
- '<td style="font-weight:700;color:'+(x.dead?'var(--crit)':x.peak?'var(--laranja)':'inherit')+'">R$ '+
- x.cpv.toLocaleString('pt-BR')+'</td>'+
- '<td style="color:var(--text2)">'+(x.loja===null?na:x.loja)+'</td>';
+ '<td style="font-weight:700;color:'+cor+'">R$ '+x.cpv.toLocaleString('pt-BR')+'</td>'+
+ '<td>R$ '+x.rec.toLocaleString('pt-BR')+'</td>'+
+ '<td style="font-weight:700;color:'+cor+'">'+x.roas.toFixed(1).replace('.',',')+'x</td>'+
+ '<td style="color:var(--text2)">'+x.loja+'</td>';
  tb2.appendChild(tr);
 });
 
@@ -1330,19 +1319,6 @@ S.forEach(function(s){s.addEventListener('input', sim)});
 sim();
 
 
-/* ---------- tabela meta ---------- */
-var tm=document.getElementById('tabmeta');
-if(tm){
- ["Fevereiro","Março","Abril","Maio","Junho","Julho"].forEach(function(k){
- var m=META[k], peak=(k==='Abril'), low=(k==='Junho');
- var tr=document.createElement('tr');
- tr.innerHTML='<td>'+k+(k==='Julho'?' <span style="font-weight:400;color:var(--text2)">(parcial)</span>':'')+'</td>'+
- '<td>R$ '+m.rec.toLocaleString('pt-BR')+'</td>'+
- '<td style="font-weight:700;color:'+(peak?'var(--laranja)':low?'var(--crit)':'inherit')+'">'+
- m.roas.toFixed(1).replace('.',',')+'x</td>';
- tm.appendChild(tr);
- });
-}
 
 /* ---------- mix PCD/Move ---------- */
 var mw=document.getElementById('mixwrap');
