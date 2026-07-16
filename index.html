@@ -560,8 +560,9 @@ td:first-child{font-weight:600}
 
  <h3 style="font-size:19px;margin-top:56px">O mesmo acervo serve o follow-up</h3>
  <p class="lede">Aqui os dois temas da apresentação se encontram. Cada momento da
- cadência de resgate pede um formato, e <b>tudo isso roda dentro da janela
- gratuita de 72h</b>. O criativo deixa de ser só mídia e vira ferramenta de vendas.</p>
+ cadência de resgate pede um formato. <b>O primeiro contato é grátis, porque
+ acontece dentro da janela de 24h.</b> O criativo deixa de ser só mídia e vira
+ ferramenta de vendas.</p>
  <div class="usos" id="usos"></div>
 
  
@@ -722,45 +723,42 @@ td:first-child{font-weight:600}
  <div class="ctrl">
  <label for="s1">Leads novos por mês <b><span id="v1">160</span></b></label>
  <input type="range" id="s1" min="50" max="400" step="10" value="160">
- <p class="hint">Entram por anúncio de clique-para-WhatsApp → abrem a janela
- gratuita de 72h. <b>Toda a cadência de resgate deles custa R$ 0.</b></p>
+ <p class="hint">O primeiro contato acontece <b>dentro da janela de 24h</b>, enquanto
+ o lead ainda está conversando. Esse não custa nada.</p>
  </div>
  <div class="ctrl">
- <label for="s2">Base para o disparo mensal <b><span id="v2">975</span></b></label>
- <input type="range" id="s2" min="0" max="4000" step="25" value="975">
- <p class="hint">Contatos fora da janela de 24h. Cada mensagem aqui é
- template de <b>marketing</b>, é o único item realmente pago.</p>
+ <label for="s2">Quantos não respondem e recebem o resgate de 24h <b><span id="v2">70</span>%</b></label>
+ <input type="range" id="s2" min="0" max="100" step="5" value="70">
+ <p class="hint">Depois de 24h a janela fecha e é preciso template. É o primeiro
+ item pago da régua.</p>
  </div>
  <div class="ctrl">
- <label for="s3">Lembretes de compromisso por mês <b><span id="v3">40</span></b></label>
- <input type="range" id="s3" min="0" max="300" step="5" value="40">
- <p class="hint">Confirmação de visita, retorno de simulação, aviso de
- liberação do Move Brasil. Template de <b>utilidade</b>, bem mais barato.</p>
+ <label for="s3">Base para o disparo mensal <b><span id="v3">975</span></b></label>
+ <input type="range" id="s3" min="0" max="4000" step="25" value="975">
+ <p class="hint">Contatos fora da janela. Cada um é um template de marketing.</p>
  </div>
  <div class="ctrl">
- <label for="s4">Preço do template de marketing <b>R$ <span id="v4">0,34</span></b></label>
- <input type="range" id="s4" min="31" max="38" step="1" value="34">
- <p class="hint">Faixa praticada no Brasil (R$ 0,31 a 0,38). A Meta passou a
- cobrar em reais a partir de <b>1º de julho de 2026</b>.</p>
+ <label for="s4">Preço do template de marketing <b>R$ <span id="v4">0,35</span></b></label>
+ <input type="range" id="s4" min="30" max="40" step="1" value="35">
+ <p class="hint">A Meta passou a cobrar em reais a partir de
+ <b>1º de julho de 2026</b>. Confirme o seu valor na fatura do provedor.</p>
  </div>
  </div>
  <div class="total">
  <div class="tl">Custo mensal de API</div>
- <div class="tf" id="tf">R$ 333</div>
- <div class="tsub" id="tsub">≈ R$ 4.000 por ano</div>
- <div class="tline zero"><span>Follow-up nas 72h</span><b id="t1">R$ 0</b></div>
- <div class="tline zero"><span>Respostas na janela de 24h</span><b id="t2">R$ 0</b></div>
- <div class="tline"><span>Disparo mensal (marketing)</span><b id="t3">R$ 332</b></div>
- <div class="tline"><span>Lembretes (utilidade)</span><b id="t4">R$ 2</b></div>
+ <div class="tf" id="tf">R$ 0</div>
+ <div class="tsub" id="tsub"></div>
+ <div class="tline zero"><span>Primeiro contato, janela de 24h</span><b id="t1">R$ 0</b></div>
+ <div class="tline"><span>Resgate de 24h (marketing)</span><b id="t2">R$ 0</b></div>
+ <div class="tline"><span>Disparo mensal (marketing)</span><b id="t3">R$ 0</b></div>
  <div class="tctx" id="tctx"></div>
  </div>
  </div>
 
  <div class="pending" style="margin-top:40px">
  <h3>Antes de levar este número como definitivo</h3>
- <p>Duas checagens honestas: <b>(1)</b> os preços por mensagem são a faixa pública
- da Meta para o Brasil, o valor exato depende do contrato e do provedor (BSP)
- que a Taiyo usa hoje, e vale confirmar na fatura. </p>
+ <p>O preço por mensagem depende do contrato e do provedor (BSP) que a Taiyo usa
+ hoje. Vale confirmar na fatura antes de levar este número como definitivo. </p>
  </div>
  </div>
 </section>
@@ -889,11 +887,11 @@ var OCULTO=[
 ];
 
 var FLOW=[
- {w:'0-5 min', h:'Resposta humana com nome e contexto', p:'O consultor abre citando o que o lead já disse ao bot, modelo, regime de compra, necessidade. Nunca "já tem algum modelo em mente?" para quem acabou de responder isso.', c:'R$ 0', f:1, s:'janela de 72h'},
- {w:'5-30 min', h:'O carro, mostrado de verdade', p:'Três fotos do showroom, um vídeo de 30s do carro real e um áudio do consultor. Nenhum concorrente medido faz isso, é o maior diferencial disponível e o mais barato.', c:'R$ 0', f:1, s:'janela de 72h'},
- {w:'Mesmo dia', h:'Convite à loja com data e hora', p:'Não "podemos agendar?", mas "amanhã 9h ou quinta 15h?". Em abril, 82% de quem foi encaminhado chegou à visita, e quem chega à visita, a Taiyo converte bem.', c:'R$ 0', f:1, s:'janela de 72h'},
- {w:'24h / 48h / 72h', h:'Cadência de resgate para quem não respondeu', p:'Três toques, cada um com conteúdo novo, nunca o mesmo template. Tudo dentro da janela gratuita do anúncio.', c:'R$ 0', f:1, s:'janela de 72h'},
- {w:'Mensal', h:'Um disparo para a base fria', p:'Reativação da base acumulada com oferta real e opt-out. Único item pago da cadência, e o mais barato do funil.', c:'≈ R$ 0,34', f:0, s:'template marketing'}
+ {w:'0-5 min',h:'Resposta humana com nome e contexto',p:'O consultor abre citando o que o lead já disse ao bot: modelo, regime de compra, necessidade. Nunca "já tem algum modelo em mente?" para quem acabou de responder isso.',c:'R$ 0',f:1,s:'janela de 24h'},
+ {w:'5-30 min',h:'O carro, mostrado de verdade',p:'Três fotos do showroom, um vídeo de 30s do carro real e um áudio do consultor. Nenhum concorrente medido faz isso, é o maior diferencial disponível e o mais barato.',c:'R$ 0',f:1,s:'janela de 24h'},
+ {w:'Mesmo dia',h:'Convite à loja com data e hora',p:'Não "podemos agendar?", mas "amanhã 9h ou quinta 15h?". Em abril, 82% de quem foi encaminhado chegou à visita, e quem chega à visita, a Taiyo converte bem.',c:'R$ 0',f:1,s:'janela de 24h'},
+ {w:'24h',h:'Vídeo de apresentação para quem não respondeu',p:'A janela de 24h fechou, então aqui entra template. Um vídeo mais longo, com o carro por dentro e por fora, e o convite com data.',c:'≈ R$ 0,35',f:0,s:'template marketing'},
+ {w:'Mensal',h:'Um disparo para a base fria',p:'Reativação da base acumulada com oferta real e opt-out.',c:'≈ R$ 0,35',f:0,s:'template marketing'}
 ];
 
 /* ---------- render: meses ---------- */
@@ -1070,29 +1068,27 @@ bReset.addEventListener('click', reset);
 reset();
 
 /* ---------- simulador ---------- */
-var S=['s1', 's2', 's3', 's4'].map(function(i){return document.getElementById(i)});
+var S=['s1','s2','s3','s4'].map(function(i){return document.getElementById(i)});
 function sim(){
- var leads=+S[0].value, base=+S[1].value, util=+S[2].value, pm=+S[3].value/100;
- var pu=0.045;
- var cMkt=base*pm, cUtil=util*pu, tot=cMkt+cUtil;
+ var leads=+S[0].value, pctResgate=+S[1].value, base=+S[2].value, pm=+S[3].value/100;
+ var resgates=Math.round(leads*pctResgate/100);
+ var cResgate=resgates*pm, cBase=base*pm, tot=cResgate+cBase;
  document.getElementById('v1').textContent=leads;
- document.getElementById('v2').textContent=base;
- document.getElementById('v3').textContent=util;
+ document.getElementById('v2').textContent=pctResgate;
+ document.getElementById('v3').textContent=base;
  document.getElementById('v4').textContent=pm.toFixed(2).replace('.',',');
  document.getElementById('t1').textContent='R$ 0';
- document.getElementById('t2').textContent='R$ 0';
- document.getElementById('t3').textContent='R$ '+Math.round(cMkt).toLocaleString('pt-BR');
- document.getElementById('t4').textContent='R$ '+Math.round(cUtil).toLocaleString('pt-BR');
+ document.getElementById('t2').textContent='R$ '+Math.round(cResgate).toLocaleString('pt-BR');
+ document.getElementById('t3').textContent='R$ '+Math.round(cBase).toLocaleString('pt-BR');
  document.getElementById('tf').textContent='R$ '+Math.round(tot).toLocaleString('pt-BR');
  document.getElementById('tsub').textContent='≈ R$ '+Math.round(tot*12).toLocaleString('pt-BR')+' por ano';
- var recAbr=1315282;
- var pctVenda=tot/(recAbr/8)*100;
+ var ticket=1315282/8;
  document.getElementById('tctx').innerHTML='O custo mensal inteiro equivale a <b>'+
- pctVenda.toFixed(2).replace('.',',')+'%</b> do valor de <b>uma única venda</b> '+
- '(ticket médio de abril: R$ '+Math.round(recAbr/8).toLocaleString('pt-BR')+'). '+
- 'Os '+leads+' leads do mês são atendidos e resgatados sem custo de mensagem.';
+ (tot/ticket*100).toFixed(2).replace('.',',')+'%</b> do valor de <b>uma única venda</b> '+
+ '(ticket médio de abril: R$ '+Math.round(ticket).toLocaleString('pt-BR')+'). '+
+ 'O primeiro contato dos '+leads+' leads do mês não custa mensagem: acontece dentro da janela de 24h.';
 }
-S.forEach(function(s){s.addEventListener('input', sim)});
+S.forEach(function(s){s.addEventListener('input',sim)});
 sim();
 
 
@@ -1232,9 +1228,9 @@ var USOS=[
  {w:'2h após o cadastro',h:'O carro que ele viu, mostrado de verdade',
  p:'Em vez do template, chega o detalhe do modelo filmado no showroom de vocês, um áudio do consultor que vai atendê-lo, e a resposta à dúvida que ele trouxe. Se ele perguntou de porta-malas, recebe o vídeo de porta-malas.',c:'R$ 0'},
  {w:'24h',h:'Vídeo de apresentação do carro, até 1m30',
- p:'Para quem não respondeu. Um vídeo mais longo, com o carro por dentro e por fora, filmado no showroom de vocês. É exatamente o que um PDF nunca vai fazer. E junto, o convite com data: "amanhã 9h ou quinta 15h?".',c:'R$ 0'},
+ p:'Para quem não respondeu. Um vídeo mais longo, com o carro por dentro e por fora, filmado no showroom de vocês. É exatamente o que um PDF nunca vai fazer. E junto, o convite com data: "amanhã 9h ou quinta 15h?".',c:'≈ R$ 0,35'},
  {w:'Mensal',h:'A melhor peça do mês para a base fria',
- p:'O disparo deixa de ser arte de campanha genérica e passa a ser o conteúdo que mais performou no feed naquele mês.',c:'≈ R$ 0,34'}
+ p:'O disparo deixa de ser arte de campanha genérica e passa a ser o conteúdo que mais performou no feed naquele mês.',c:'≈ R$ 0,35'}
 ];
 var uz=document.getElementById('usos');
 if(uz){
