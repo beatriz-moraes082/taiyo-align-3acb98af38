@@ -81,6 +81,7 @@ h2{font-size:clamp(28px, 4vw, 44px);margin-bottom:14px}
 .scrollcue{margin-top:30px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#8d968c;
  display:flex;align-items:center;gap:10px}
 .scrollcue span{width:26px;height:1px;background:var(--laranja);animation:cue 2.2s ease-in-out infinite}
+@keyframes reveal{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
 @keyframes cue{0%, 100%{transform:scaleX(.35);transform-origin:left}50%{transform:scaleX(1);transform-origin:left}}
 
 /* ---------- kpi ---------- */
@@ -106,7 +107,7 @@ h2{font-size:clamp(28px, 4vw, 44px);margin-bottom:14px}
 .mrow .mn s{display:block;font-size:10px;color:var(--text2);text-decoration:none;font-weight:500;white-space:nowrap}
 .bar{height:26px;background:var(--surface2);border-radius:2px;position:relative;overflow:hidden}
 .bar i{position:absolute;left:0;top:0;bottom:0;background:var(--musgo);border-radius:2px;
- transition:width .7s cubic-bezier(.2.8.2,1)}
+ animation:reveal .7s cubic-bezier(.2,.8,.2,1) both}
 .mrow.peak .bar i{background:var(--laranja)}
 .mrow.dead .bar i{background:var(--crit)}
  .mrow.escala .bar i{background:var(--bom)}
@@ -144,7 +145,7 @@ h2{font-size:clamp(28px, 4vw, 44px);margin-bottom:14px}
 .ftrack{height:32px;background:var(--surface2);border-radius:2px;position:relative}
 .ffill{position:absolute;left:0;top:0;bottom:0;background:var(--musgo);border-radius:2px;
  display:flex;align-items:center;padding-left:11px;color:var(--bege);font-size:12px;
- font-weight:700;font-variant-numeric:tabular-nums;transition:width .8s cubic-bezier(.2.8.2,1);
+ font-weight:700;font-variant-numeric:tabular-nums;animation:reveal .8s cubic-bezier(.2,.8,.2,1) both;
  min-width:34px;white-space:nowrap}
 .fstage.cliff .ffill{background:var(--crit)}
 .fstage.bot .ffill{background:var(--pale);color:var(--ink)}
@@ -301,7 +302,7 @@ input[type=range]:focus-visible{outline:2px solid var(--laranja);outline-offset:
 .mixlab{font-size:12px;font-weight:600}
 .mixbar{height:20px;background:var(--surface2);border-radius:2px;position:relative;overflow:hidden}
 .mixbar i{position:absolute;left:0;top:0;bottom:0;background:var(--musgo);border-radius:2px;
- transition:width .8s cubic-bezier(.2.8.2,1)}
+ animation:reveal .8s cubic-bezier(.2,.8,.2,1) both}
 .mixbar i.hot{background:var(--laranja)}
 .mixval{font-size:12px;font-weight:700;text-align:right;font-variant-numeric:tabular-nums}
 
@@ -1137,7 +1138,7 @@ MESES.forEach(function(x){
  b.className='mrow'+(x.peak?' peak':'')+(x.dead?' dead':'');
  b.type='button';
  b.innerHTML='<div class="mn">'+x.m+'<s>'+x.s+'</s></div>'+
- '<div class="bar"><i style="width:0"></i></div>'+
+ '<div class="bar"><i style="width:'+(x.vendas/maxVenda*100)+'%"></i></div>'+
  '<div class="mval num">'+x.vendas+' <s>'+
  '<span class="mc"><b>'+x.conv.toFixed(2).replace('.',',')+'%</b> de conversão</span>'+
  '<span class="mv">R$ '+x.cpv.toLocaleString('pt-BR')+' por venda</span></s></div>';
@@ -1146,9 +1147,6 @@ MESES.forEach(function(x){
  document.getElementById('crm').scrollIntoView({behavior:'smooth'});
  });
  mEl.appendChild(b);
- requestAnimationFrame(function(){
- b.querySelector('.bar i').style.width=(x.vendas/maxVenda*100)+'%';
- });
 });
 
 var tb2=document.getElementById('tabmes');
@@ -1194,12 +1192,9 @@ function setFunil(m){
  var row=document.createElement('div');
  row.className='fstage'+(cliff?' cliff':'')+(isBot?' bot':'');
  row.innerHTML='<div class="fname">'+nome+(isBot?'<s>automação</s>':'')+'</div>'+
- '<div class="ftrack"><div class="ffill" style="width:0">'+n+'</div>'+
+ '<div class="ftrack"><div class="ffill" style="width:'+Math.max(n/d.tot*100,3)+'%">'+n+'</div>'+
  '<div class="fpct">'+Math.round(n/d.tot*100)+'%</div></div>';
  fEl.appendChild(row);
- requestAnimationFrame(function(){
- row.querySelector('.ffill').style.width=Math.max(n/d.tot*100,3)+'%';
- });
  if(cliff && prev>n){
  var dd=document.createElement('div');
  dd.className='drop';
@@ -1287,11 +1282,8 @@ function step(){
  var g=document.createElement('div');
  var h=Math.min(6+Math.log(m.g)*11,86);
  g.className='gap'+(m.g>=720?' big':'');
- g.innerHTML='<i style="height:0"></i><b>'+fmtGap(m.g)+'</b><i style="height:0"></i>';
+ g.innerHTML='<i style="height:'+(h/2)+'px"></i><b>'+fmtGap(m.g)+'</b><i style="height:'+(h/2)+'px"></i>';
  rbody.appendChild(g);
- requestAnimationFrame(function(){
- Array.prototype.forEach.call(g.querySelectorAll('i'), function(n){n.style.height=(h/2)+'px'});
- });
  acc+=m.g;rclock.textContent=fmtAcc(acc);
  }
  rbody.scrollTop=rbody.scrollHeight;
@@ -1358,13 +1350,10 @@ if(mw){
  ["Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho"].forEach(function(k){
  var v=MIX[k].pct, hot=v>=40;
  h+='<div class="mixrow"><span class="mixlab">'+k+'</span>'+
- '<span class="mixbar"><i class="'+(hot?'hot':'')+'" style="width:0" data-w="'+v+'"></i></span>'+
+ '<span class="mixbar"><i class="'+(hot?'hot':'')+'" style="width:'+v+'%"></i></span>'+
  '<span class="mixval num">'+v+'%</span></div>';
  });
  mw.innerHTML=h+'</div>';
- requestAnimationFrame(function(){
- mw.querySelectorAll('.mixbar i').forEach(function(n){n.style.width=n.dataset.w+'%'});
- });
 }
 
 /* ---------- criativos ---------- */
