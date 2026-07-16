@@ -427,7 +427,7 @@ td:first-child{font-weight:600}
 <section id="abril">
  <div class="wrap">
  <div class="eyebrow">Campanhas · o recorte</div>
- <h2>Abril foi o melhor mês.<br>E ele não foi sorte.</h2>
+ <h2>Abril foi o melhor mês.</h2>
  <p class="lede">Menos leads que fevereiro, menos que maio, e ainda assim
  <b>o maior número de vendas e a melhor conversão do semestre</b>.
  Conversão de <b>5,6%</b>, quase o dobro da média do setor automotivo brasileiro.
@@ -462,16 +462,14 @@ td:first-child{font-weight:600}
 
  <div class="tscroll">
  <table>
- <thead><tr><th>Mês</th><th>Leads</th><th>Investimento (fundo)</th><th>CPL</th><th>Vendas de mídia</th><th>Conversão</th><th>Custo por venda</th><th>Receita</th><th>ROAS</th><th>Loja toda (contexto)</th></tr></thead>
+ <thead><tr><th>Mês</th><th>Leads</th><th>Investimento (fundo)</th><th>CPL</th><th>Vendas de mídia</th><th>Conversão</th><th>Custo por venda</th><th>Receita</th><th>ROAS</th></tr></thead>
  <tbody id="tabmes"></tbody>
  </table>
  </div>
  <p class="lede" style="margin-top:14px;font-size:13px">
- Tudo até <b>ROAS</b> é só mídia: leads dos nossos anúncios, registrados no Kommo, e
- as vendas que saíram deles. <b>Investimento, CPL, custo por venda e ROAS usam só
- campanhas de fundo de funil</b>; meio de funil e marca ficam de fora. A última
- coluna é a venda total da loja, todos os canais, e serve só de contexto:
- <b>não entra em nenhuma conta acima</b>.
+ Tudo aqui é <b>só mídia</b>: leads dos nossos anúncios, registrados no Kommo, e as
+ vendas que saíram deles. <b>Investimento, CPL, custo por venda e ROAS usam só
+ campanhas de fundo de funil</b>; meio de funil e marca ficam de fora.
  </p>
 
  <div class="pullwrap">
@@ -924,8 +922,7 @@ MESES.forEach(function(x){
  '<td>'+x.conv.toFixed(2).replace('.',',')+'%</td>'+
  '<td style="font-weight:700;color:'+cor+'">R$ '+x.cpv.toLocaleString('pt-BR')+'</td>'+
  '<td>R$ '+x.rec.toLocaleString('pt-BR')+'</td>'+
- '<td style="font-weight:700;color:'+cor+'">'+x.roas.toFixed(1).replace('.',',')+'x</td>'+
- '<td style="color:var(--text2)">'+x.loja+'</td>';
+ '<td style="font-weight:700;color:'+cor+'">'+x.roas.toFixed(1).replace('.',',')+'x</td>';
  tb2.appendChild(tr);
 });
 
