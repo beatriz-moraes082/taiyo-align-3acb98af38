@@ -296,32 +296,7 @@ input[type=range]:focus-visible{outline:2px solid var(--laranja);outline-offset:
 
 
 
-.conf{display:grid;grid-template-columns:repeat(auto-fit, minmax(268px, 1fr));gap:1px;
- background:var(--line);border:1px solid var(--line);border-radius:3px;overflow:hidden;margin-top:34px}
-.confg{background:var(--ground);padding:22px 20px}
-.confh{display:flex;align-items:center;gap:10px;margin-bottom:10px}
-.pill{font-size:9.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;
- padding:4px 9px;border-radius:999px;border:1px solid currentColor}
-.confg.alto .pill{color:var(--bom)}
-.confg.medio .pill{color:var(--alerta)}
-.confg.baixo .pill{color:var(--crit)}
-.confg.corr .pill{color:var(--muted)}
-.confn{margin-left:auto;font-size:20px;font-weight:700;letter-spacing:-.04em;color:var(--text2)}
-.confd{font-size:11.5px;color:var(--text2);line-height:1.5;margin-bottom:12px}
-.confg ul{margin:0;padding-left:16px;display:flex;flex-direction:column;gap:7px}
-.confg li{font-size:12px;line-height:1.5;color:var(--text)}
-.confg.baixo li.confg.corr li{color:var(--text2)}
-.gaps{display:flex;flex-direction:column;gap:14px}
-.gapc{border:1px solid var(--line);border-left:2px solid var(--laranja);border-radius:3px;
- padding:16px 18px;background:var(--surface)}
-.gapc h3{font-size:13.5px;margin-bottom:7px}
-.gapc p{font-size:12px;color:var(--text2);line-height:1.55}
-.gapc .need{margin-top:9px;padding-top:9px;border-top:1px solid var(--line);
- color:var(--laranja);font-weight:600}
-.gapc.resolvido{border-left-color:var(--bom)}
-.gapc.resolvido .need{color:var(--bom)}
-.gapc .ok{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
- color:var(--bom);border:1px solid var(--bom);padding:2px 7px;border-radius:999px;margin-left:6px}
+.confg.alto .confg.medio .confg.baixo .confg.corr .confg.baixo li.confg.corr li{color:var(--text2)}
 
 
 .hoje{margin-top:34px;border:1px solid var(--line);border-radius:3px;padding:22px;background:var(--surface)}
@@ -432,7 +407,6 @@ td:first-child{font-weight:600}
  <a class="rdot" href="#mercado"><i></i><b>Mercado</b></a>
  <a class="rdot" href="#proposta"><i></i><b>Proposta</b></a>
  <a class="rdot" href="#custo"><i></i><b>Custo</b></a>
- <a class="rdot" href="#confianca"><i></i><b>Confiança</b></a>
 </nav>
 
 <!-- ============ CAPA ============ -->
@@ -714,10 +688,7 @@ td:first-child{font-weight:600}
 
  <div class="cmp" id="cmp"></div>
 
- <p class="lede" style="margin-top:26px">Repare na coluna da direita: não é aspiracional.
- <b>É o que a Taiyo passa a fazer se mudar só o roteiro</b>, sem tecnologia nova,
- sem contratar ninguém. Mandar foto, oferecer visita com data e responder dentro
- da hora já coloca a operação acima das quatro medidas.</p>
+ 
  </div>
 </section>
 
@@ -733,19 +704,7 @@ td:first-child{font-weight:600}
 
  <div class="flow" id="flow"></div>
 
- <div class="pullwrap">
- <div>
- <p class="pull">A janela de 72h dos anúncios de clique-para-WhatsApp torna
- toda a cadência de resgate gratuita.</p>
- <p class="who">Não é estimativa: é a regra de cobrança da Meta para leads
- que entram por anúncio, <b>o período em que o lead está mais quente é
- justamente o período que não se paga</b>.</p>
- </div>
- <div>
- <p class="lede" style="font-size:14.5px">É por isso que o custo não pode ser
- a objeção. <b>Todo o follow-up das primeiras 72 horas custa R$ 0</b>, o único gasto real é o disparo mensal para a base fria. Simule ao lado.</p>
- </div>
- </div>
+ 
  </div>
 </section>
 
@@ -801,55 +760,12 @@ td:first-child{font-weight:600}
  <h3>Antes de levar este número como definitivo</h3>
  <p>Duas checagens honestas: <b>(1)</b> os preços por mensagem são a faixa pública
  da Meta para o Brasil, o valor exato depende do contrato e do provedor (BSP)
- que a Taiyo usa hoje, e vale confirmar na fatura. <b>(2)</b> a janela gratuita
- de 72h vale para leads que entram por anúncio de clique-para-WhatsApp; leads
- de formulário ou orgânicos não abrem essa janela.</p>
+ que a Taiyo usa hoje, e vale confirmar na fatura. </p>
  </div>
  </div>
 </section>
 
-<!-- ============ CONFIANÇA ============ -->
-<section id="confianca">
- <div class="wrap">
- <div class="eyebrow">Confiança dos dados</div>
- <h2>O que dá para afirmar, <br>e o que ainda não.</h2>
- <p class="lede">Toda afirmação desta apresentação está classificada abaixo pela
- força da evidência que a sustenta. <b>Nada aqui é estimativa apresentada como
- fato.</b> Onde o dado não permite concluir, está escrito que não permite.</p>
 
- <div class="conf" id="conf"></div>
-
- <div class="pullwrap" style="margin-top:44px">
- <div>
- <p class="pull">Uma das duas perguntas em aberto foi respondida hoje. A outra
- depende de vocês.</p>
- <p class="who">A do Syonet fechou com a exportação. A da origem só fecha
- quando o rastreamento for ligado. <b>É a primeira pauta da próxima reunião.</b></p>
- </div>
- <div>
- <div class="gaps">
- <div class="gapc resolvido">
- <h3>1 · O Kommo mede a venda real? <span class="ok">Respondido</span></h3>
- <p>Não. A loja vendeu <b>71 em abril e 37 em junho</b>, e o Kommo registrou
- <b>8 e 1</b>. O nosso funil responde por algo entre <b>2,7% e 13,7%</b> da
- venda da loja, dependendo do mês. <b>A diferença não é venda perdida, é
- venda que a gente não consegue provar que gerou.</b></p>
- <p class="need">Resolvido com a exportação do Syonet, 16/07.</p>
- </div>
- <div class="gapc">
- <h3>2 · Quanto de junho foi Move Brasil?</h3>
- <p>Sabemos que <b>20% do investimento</b> foi para esse criativo, isso é
- medido no Meta. Mas o Kommo não registra origem em nenhum lead, então
- não dá para dizer quantos dos 157 leads eram Move Brasil, nem calcular
- a conversão do funil sem eles.</p>
- <p class="need">Para fechar: ligar o rastreamento de origem no Kommo.
- Já está configurado, só não é preenchido.</p>
- </div>
- </div>
- </div>
- </div>
- </div>
-</section>
 
 <footer class="foot">
  <div class="wrap">
@@ -977,7 +893,6 @@ var FLOW=[
  {w:'5-30 min', h:'O carro, mostrado de verdade', p:'Três fotos do showroom, um vídeo de 30s do carro real e um áudio do consultor. Nenhum concorrente medido faz isso, é o maior diferencial disponível e o mais barato.', c:'R$ 0', f:1, s:'janela de 72h'},
  {w:'Mesmo dia', h:'Convite à loja com data e hora', p:'Não "podemos agendar?", mas "amanhã 9h ou quinta 15h?". Em abril, 82% de quem foi encaminhado chegou à visita, e quem chega à visita, a Taiyo converte bem.', c:'R$ 0', f:1, s:'janela de 72h'},
  {w:'24h / 48h / 72h', h:'Cadência de resgate para quem não respondeu', p:'Três toques, cada um com conteúdo novo, nunca o mesmo template. Tudo dentro da janela gratuita do anúncio.', c:'R$ 0', f:1, s:'janela de 72h'},
- {w:'Em espera', h:'Todo impedimento tem dono e retorno agendado', p:'Move Brasil e isenção de IPI deixam de ser "aviso quando souber". Viram lembrete no calendário, com data dita ao cliente e cobrada internamente. Metade do funil de junho passava por aqui.', c:'≈ R$ 0,05', f:0, s:'template utilidade'},
  {w:'Mensal', h:'Um disparo para a base fria', p:'Reativação da base acumulada com oferta real e opt-out. Único item pago da cadência, e o mais barato do funil.', c:'≈ R$ 0,34', f:0, s:'template marketing'}
 ];
 
@@ -1212,55 +1127,7 @@ if(ct&&tc){
 }
 
 
-/* ---------- confiança ---------- */
-var CONF=[
- {t:'alto',lab:'Verificável na fonte',desc:'Puxado direto da API, do relatório do Syonet ou lido na gravação. Reproduzível a qualquer momento.',
- itens:[
- 'Vendas totais da loja, fev a jul: 51, 70, 71, 56, 37 e 18 (informado pela Taiyo)',
- 'Investimento, CPL e mix de campanha (API do Meta, coleta de 16/07)',
- 'Custo de mídia por venda do funil pago: R$ 951 em abril e R$ 9.009 em junho',
- 'Move Brasil em junho: nenhuma venda registrada no Syonet',
- '20% do investimento de junho em Move Brasil, e zero em julho, depois que a Taiyo pediu para baixar as artes',
- 'Funil por etapa do Kommo, mês a mês (eventos, com paginação completa)',
- '103 de 103 encaminhados de junho com vendedor nomeado',
- '184h de mediana parada em Encaminhado para Vendas',
- '0% dos leads do Kommo com origem preenchida; 80% do Syonet sem mídia em maio',
- 'Todas as citações de conversa, conferidas frame a frame',
- 'As 4 conversas de cliente oculto']},
- {t:'medio',lab:'Correto, com ressalva de método',desc:'O número está certo, mas depende de uma escolha de medição ou de um campo que a equipe preenche.',
- itens:[
- 'O volume de oportunidades do Syonet não é comparável entre meses: abril empilhou 2.402 em WhatsApp, maio empilhou 3.157 em sem mídia, junho não tem balde. Só as vendas são comparáveis',
- 'Receita do Kommo depende do campo price estar correto em cada venda',
- 'O custo por venda usa só as vendas registradas no Kommo. Como o Kommo registra menos venda do que a loja fecha, é um teto: o custo real é menor',
- 'O mix de Move Brasil no Meta é identificado pelo nome do criativo, não por campo estruturado',
- 'Leads do Meta (conversas iniciadas) e leads do Kommo têm metodologias diferentes']},
- {t:'baixo',lab:'Não dá para afirmar hoje',desc:'Escrito na apresentação como pergunta em aberto, nunca como conclusão.',
- itens:[
- 'Qual campanha gerou qual venda. Nenhum dos dois sistemas permite responder',
- 'Quantos dos 157 leads do Kommo em junho eram de Move Brasil (sem origem registrada)',
- 'Por que o Kommo enxerga 42% das vendas em abril e só 14% em maio e junho',
- 'Quantas conversas iniciadas no Meta nunca viram lead no Kommo']},
- {t:'corr',lab:'Corrigido durante a apuração',desc:'Achados que estavam errados em versões anteriores e foram refeitos. Ficam registrados por honestidade.',
- itens:[
- 'Uma versão anterior dividia toda a mídia pelas vendas da loja inteira, misturando balcão e telefone no resultado de mídia. A Taiyo separa as duas coisas, e com razão: o custo por venda agora usa só o funil pago',
- 'A venda total da loja foi lida do relatório "Funil de Vendas" do Syonet, que conta só oportunidade com funil vinculado e por isso subestima muito (mostrava 19 em abril quando o real é 71). Os totais agora vêm da Taiyo',
- 'A leitura de que nenhum lead chega a um vendedor estava errada. O responsável do Kommo não muda, mas o campo Vendedores é preenchido em 100% dos encaminhados',
- 'O CPL de maio estava subestimado. Campanhas escritas como Fundo de funil em minúsculo caíam fora da conta: R$ 4.608, 19% do mês',
- 'A leitura de que o CPL de junho melhorou estava incompleta. Ele caiu porque parte do mix migrou para um segmento barato que não era financiável',
- 'O tamanho do mix de Move Brasil estava errado: a busca casava "app" dentro de "WhatsApp" e inflava a conta. O real é 20% do investimento de junho e zero em julho, não 45% e 79%. E PCD, que estava somado junto, é outro programa e funciona']}
-];
-var ce=document.getElementById('conf');
-if(ce){
- CONF.forEach(function(g){
- var d=document.createElement('div');
- d.className='confg '+g.t;
- var li=g.itens.map(function(i){return '<li>'+i+'</li>'}).join('');
- d.innerHTML='<div class="confh"><span class="pill">'+g.lab+'</span>'+
- '<span class="confn num">'+g.itens.length+'</span></div>'+
- '<p class="confd">'+g.desc+'</p><ul>'+li+'</ul>';
- ce.appendChild(d);
- });
-}
+
 
 
 
