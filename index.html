@@ -497,7 +497,7 @@ td:first-child{font-weight:600}
  </div>
  <p class="lede" style="margin-top:14px;font-size:13px">
  As sete primeiras colunas são <b>só mídia</b>: leads dos nossos anúncios, registrados
- no Kommo, e as vendas que saíram deles. A última coluna é a loja inteira, no Syonet,
+ no Kommo, e as vendas que saíram deles. A última coluna é a venda total da loja, todos os canais,
  e serve só de contexto: <b>não entra na conta do custo por venda</b>.
  </p>
 
@@ -941,10 +941,10 @@ td:first-child{font-weight:600}
  <div class="gaps">
  <div class="gapc resolvido">
  <h3>1 · O Kommo mede a venda real? <span class="ok">Respondido</span></h3>
- <p>Não. O Syonet mostra que a loja vendeu <b>19, 36 e 7</b> em abril, maio e
- junho, e o Kommo registrou <b>8, 5 e 1</b>. O nosso funil enxerga entre
- 14% e 42% das vendas. <b>A diferença não é venda perdida, é venda que a
- gente não consegue provar que gerou.</b></p>
+ <p>Não. A loja vendeu <b>71 em abril e 37 em junho</b>, e o Kommo registrou
+ <b>8 e 1</b>. O nosso funil responde por algo entre <b>2,7% e 13,7%</b> da
+ venda da loja, dependendo do mês. <b>A diferença não é venda perdida, é
+ venda que a gente não consegue provar que gerou.</b></p>
  <p class="need">Resolvido com a exportação do Syonet, 16/07.</p>
  </div>
  <div class="gapc">
@@ -966,8 +966,8 @@ td:first-child{font-weight:600}
  <div class="wrap">
  <div class="wm" style="font-size:22px">trilha<i>•</i></div>
  <p style="margin-top:18px;max-width:70ch">
- <b>Fontes.</b> Vendas reais da loja, mídia e origem: relatório "Funil de Vendas" do
- Syonet, exportado em 16/07/2026, referente a janeiro a julho de 2026, todos os canais.
+ <b>Fontes.</b> Vendas totais da loja: informadas pela Taiyo. Mídia e origem por canal:
+ relatório "Funil de Vendas" do Syonet, exportado em 16/07/2026.
  Funil digital, conversão, tempo de perda e repasse: API do Kommo (pipeline "Novos"),
  leads criados entre 01/02 e 16/07/2026. Investimento, CPL e criativos: API do Meta,
  contas Taiyo Novos e Taiyo Pós-vendas. Padrões de atendimento: 9 gravações do Syonet
@@ -1008,12 +1008,12 @@ tb.addEventListener('click', function(){
 
 /* ---------- data ---------- */
 var MESES=[
- {m:'Fevereiro',s:'228 leads',leads:228,spend:5255,cpl:23.05,vendas:7,conv:3.07,cpv:751,loja:14,ttl:'74,3h'},
- {m:'Março',s:'161 leads',leads:161,spend:9187,cpl:57.06,vendas:6,conv:3.73,cpv:1531,loja:18,ttl:'4,4h'},
- {m:'Abril',s:'144 leads',leads:144,spend:7608,cpl:52.83,vendas:8,conv:5.56,cpv:951,loja:19,ttl:'5,0h',peak:1},
- {m:'Maio',s:'222 leads',leads:222,spend:17066,cpl:76.87,vendas:5,conv:2.25,cpv:3413,loja:36,ttl:'10,4h'},
- {m:'Junho',s:'157 leads',leads:157,spend:9009,cpl:57.38,vendas:1,conv:0.64,cpv:9009,loja:7,ttl:'44,2h',dead:1},
- {m:'Julho',s:'63 leads · parcial',leads:63,spend:3201,cpl:50.82,vendas:1,conv:1.59,cpv:3201,loja:5,ttl:'44,8h',parcial:1}
+ {m:'Fevereiro',s:'228 leads',leads:228,spend:5255,cpl:23.05,vendas:7,conv:3.07,cpv:751,loja:51,ttl:'74,3h'},
+ {m:'Março',s:'161 leads',leads:161,spend:9187,cpl:57.06,vendas:6,conv:3.73,cpv:1531,loja:70,ttl:'4,4h'},
+ {m:'Abril',s:'144 leads',leads:144,spend:7608,cpl:52.83,vendas:8,conv:5.56,cpv:951,loja:71,ttl:'5,0h',peak:1},
+ {m:'Maio',s:'222 leads',leads:222,spend:17066,cpl:76.87,vendas:5,conv:2.25,cpv:3413,loja:56,ttl:'10,4h'},
+ {m:'Junho',s:'157 leads',leads:157,spend:9009,cpl:57.38,vendas:1,conv:0.64,cpv:9009,loja:37,ttl:'44,2h',dead:1},
+ {m:'Julho',s:'63 leads · parcial',leads:63,spend:3201,cpl:50.82,vendas:1,conv:1.59,cpv:3201,loja:18,ttl:'44,8h',parcial:1}
 ];
 
 var FUNIL={
@@ -1384,7 +1384,7 @@ if(ct&&tc){
 var CONF=[
  {t:'alto',lab:'Verificável na fonte',desc:'Puxado direto da API, do relatório do Syonet ou lido na gravação. Reproduzível a qualquer momento.',
  itens:[
- 'Vendas reais da loja, jan a jul: 24, 14, 18, 19, 36, 7 e 5 (Syonet, todos os canais)',
+ 'Vendas totais da loja, fev a jul: 51, 70, 71, 56, 37 e 18 (informado pela Taiyo)',
  'Investimento, CPL e mix de campanha (API do Meta, coleta de 16/07)',
  'Custo de mídia por venda do funil pago: R$ 951 em abril e R$ 9.009 em junho',
  'Move Brasil em junho: 126 oportunidades, 89 negociações, zero fechamentos (Syonet)',
@@ -1410,7 +1410,8 @@ var CONF=[
  'Quantas conversas iniciadas no Meta nunca viram lead no Kommo']},
  {t:'corr',lab:'Corrigido durante a apuração',desc:'Achados que estavam errados em versões anteriores e foram refeitos. Ficam registrados por honestidade.',
  itens:[
- 'Uma versão anterior dividia toda a mídia pelas vendas da loja inteira, misturando balcão e telefone no resultado de mídia. A Taiyo separa as duas coisas, e com razão: o custo por venda agora usa só o funil pago, e o Syonet entra como contexto',
+ 'Uma versão anterior dividia toda a mídia pelas vendas da loja inteira, misturando balcão e telefone no resultado de mídia. A Taiyo separa as duas coisas, e com razão: o custo por venda agora usa só o funil pago',
+ 'A venda total da loja foi lida do relatório "Funil de Vendas" do Syonet, que conta só oportunidade com funil vinculado e por isso subestima muito (mostrava 19 em abril quando o real é 71). Os totais agora vêm da Taiyo',
  'A leitura de que nenhum lead chega a um vendedor estava errada. O responsável do Kommo não muda, mas o campo Vendedores é preenchido em 100% dos encaminhados',
  'O CPL de maio estava subestimado. Campanhas escritas como Fundo de funil em minúsculo caíam fora da conta: R$ 4.608, 19% do mês',
  'A leitura de que o CPL de junho melhorou estava incompleta. Ele caiu porque o mix migrou para um segmento barato que ainda não era financiável']}
