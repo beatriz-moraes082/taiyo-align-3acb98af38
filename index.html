@@ -96,14 +96,14 @@ h2{font-size:clamp(28px, 4vw, 44px);margin-bottom:14px}
 
 /* ---------- month bars ---------- */
 .months{margin-top:40px;border-top:1px solid var(--line);padding-top:8px}
-.mrow{display:grid;grid-template-columns:74px 1fr 132px;align-items:center;gap:16px;
+.mrow{display:grid;grid-template-columns:96px 1fr 132px;align-items:center;gap:16px;
  padding:13px 0;border-bottom:1px solid var(--line);cursor:pointer;background:none;border-left:0;
  border-right:0;border-top:0;width:100%;text-align:left;font-family:var(--sans);color:var(--text)}
 .mrow:hover{background:var(--surface)}
 .mrow:focus-visible{outline:2px solid var(--laranja);outline-offset:2px}
 .mrow.on{background:var(--surface)}
 .mrow .mn{font-size:13px;font-weight:600}
-.mrow .mn s{display:block;font-size:10px;color:var(--text2);text-decoration:none;font-weight:500}
+.mrow .mn s{display:block;font-size:10px;color:var(--text2);text-decoration:none;font-weight:500;white-space:nowrap}
 .bar{height:26px;background:var(--surface2);border-radius:2px;position:relative;overflow:hidden}
 .bar i{position:absolute;left:0;top:0;bottom:0;background:var(--musgo);border-radius:2px;
  transition:width .7s cubic-bezier(.2.8.2,1)}
@@ -1017,7 +1017,7 @@ var MESES=[
  {m:'Abril',s:'144 leads',leads:144,spend:7608,cpl:52.83,vendas:8,conv:5.56,cpv:951,loja:19,ttl:'5,0h',peak:1},
  {m:'Maio',s:'222 leads',leads:222,spend:17066,cpl:76.87,vendas:5,conv:2.25,cpv:3413,loja:36,ttl:'10,4h'},
  {m:'Junho',s:'157 leads',leads:157,spend:9009,cpl:57.38,vendas:1,conv:0.64,cpv:9009,loja:7,ttl:'44,2h',dead:1},
- {m:'Julho',s:'63 leads · 16 dias',leads:63,spend:3201,cpl:50.82,vendas:1,conv:1.59,cpv:3201,loja:null,ttl:'44,8h',parcial:1}
+ {m:'Julho',s:'63 leads · parcial',leads:63,spend:3201,cpl:50.82,vendas:1,conv:1.59,cpv:3201,loja:null,ttl:'44,8h',parcial:1}
 ];
 
 var FUNIL={
