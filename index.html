@@ -814,7 +814,7 @@ td:first-child{font-weight:600}
 
 <div class="plight" id="plight">
  <button class="plfechar" type="button" aria-label="Fechar">&times;</button>
- <img loading="lazy" decoding="async" alt="">
+ <img decoding="async" alt="">
  <div class="plcap"></div>
 </div>
 
@@ -989,7 +989,7 @@ if(ct&&tc){
  rows.forEach(function(a){
  var tr=document.createElement('tr');
  var th=THUMBS[a.ad];
- var mini = th ? '<span class="mini"><img loading="lazy" decoding="async" src="'+th.img+'" alt="">'+
+ var mini = th ? '<span class="mini"><img decoding="async" src="'+th.img+'" alt="">'+
  (th.video?'<i class="play">▶</i>':'')+'</span>'
  : '<span class="mini vazio"></span>';
  tr.className = th ? 'cre temimg' : 'cre';
@@ -1016,7 +1016,7 @@ if(ba){
  ba.innerHTML=
  '<div class="bac"><div class="bah"><span class="bat antes">Hoje</span>'+
  '<span class="bad">@hondataiyo, 6 primeiros posts</span></div>'+
- '<img loading="lazy" decoding="async" src="'+FEED.feed_hoje+'" alt="Feed atual da Taiyo: vendedores falando para a câmera com preço na tela">'+
+ '<img decoding="async" src="'+FEED.feed_hoje+'" alt="Feed atual da Taiyo: vendedores falando para a câmera com preço na tela">'+
  '<p class="bap">Seis posts, um formato só: alguém de camisa da loja falando para a '+
  'câmera, com o preço por cima.</p></div>'+
  '<div class="bac"><div class="bah"><span class="bat depois">Proposta</span>'+
@@ -1032,7 +1032,7 @@ if(ba){
 var of_=document.getElementById('ofertas');
 if(of_){
  of_.innerHTML='<div class="ofh">E logo abaixo, o feed vira catálogo</div>'+
- '<img loading="lazy" decoding="async" src="'+FEED.feed_ofertas+'" alt="Sequência de artes de oferta no feed da Taiyo">'+
+ '<img decoding="async" src="'+FEED.feed_ofertas+'" alt="Sequência de artes de oferta no feed da Taiyo">'+
  '<p class="ofp">Uma sequência inteira de arte de preço: <b>City R$ 119.400</b>, '+
  '<b>HR-V R$ 149.760</b>, PJ, Produtor Rural, PCD. Repare no post do WR-V: '+
  '<b>5 curtidas e nenhum comentário</b>, numa conta de 14,7 mil seguidores. '+
@@ -1046,14 +1046,14 @@ if(of_){
 
 var pm=document.getElementById('printMove');
 if(pm){
- pm.innerHTML='<img loading="lazy" decoding="async" src="'+CONV_IMG.conversa_move+'" alt="Conversa real: o cliente avisa que a concorrência já está fechando pelo Move Brasil">'+
+ pm.innerHTML='<img decoding="async" src="'+CONV_IMG.conversa_move+'" alt="Conversa real: o cliente avisa que a concorrência já está fechando pelo Move Brasil">'+
  '<figcaption>Syonet, 01/07. O consultor responde <b>"estou com bastante cliente aguardando"</b>, '+
  'e o cliente devolve que o Santander e a BYD já estão aceitando.</figcaption>';
 }
 
 var pe=document.getElementById('printEnc');
 if(pe){
- pe.innerHTML='<img loading="lazy" decoding="async" src="'+CONV_IMG.conversa_encaminhar+'" alt="Conversa real: a consultora diz que não passa valores e encaminha; dois dias depois outro consultor pergunta o modelo do zero">'+
+ pe.innerHTML='<img decoding="async" src="'+CONV_IMG.conversa_encaminhar+'" alt="Conversa real: a consultora diz que não passa valores e encaminha; dois dias depois outro consultor pergunta o modelo do zero">'+
  '<figcaption>Syonet, 22 e 24/06. O cliente pergunta do <b>City Sedan no Move Brasil</b> às 11:45. '+
  'Às 14:07 recebe o encaminhamento. <b>Dois dias depois</b>, às 08:21, outro consultor abre com '+
  '<b>"já tem algum modelo específico em mente?"</b></figcaption>';
@@ -1081,7 +1081,7 @@ var re_=document.getElementById('refs');
 if(re_){
  REFDATA.forEach(function(r){
  var d=document.createElement('div'); d.className='refc';
- d.innerHTML='<img src="'+REFS[r.k]+'" alt="Referência: '+r.h+'" loading="lazy" decoding="async">'+
+ d.innerHTML='<img src="'+REFS[r.k]+'" alt="Referência: '+r.h+'" decoding="async">'+
  '<div class="refb"><span class="reft">'+r.t+'</span><h4>'+r.h+'</h4>'+
  '<p>'+r.p+'</p><div class="take">'+r.take+'</div></div>';
  re_.appendChild(d);
@@ -1107,7 +1107,7 @@ if(g6){
  d.innerHTML=n+'<div class="g6c"><div class="g6of">'+g.of+'</div>'+
  '<div class="g6p num">'+g.preco+'</div><div class="g6m">'+g.m+'</div></div>';
  } else {
- d.innerHTML=n+'<img src="'+REFS[g.k]+'" alt="" loading="lazy" decoding="async">'+
+ d.innerHTML=n+'<img src="'+REFS[g.k]+'" alt="" decoding="async">'+
  '<div class="g6c"><div class="g6t">'+g.t+'</div><div class="g6s">'+g.s+'</div></div>';
  }
  g6.appendChild(d);
@@ -1138,7 +1138,7 @@ if(uz){
 /* ---------- pop-up do criativo ---------- */
 function abreCriativo(a, th){
  var m=document.getElementById('modal');
- m.querySelector('.mimg').innerHTML='<img loading="lazy" decoding="async" src="'+th.img+'" alt="Criativo">'+
+ m.querySelector('.mimg').innerHTML='<img decoding="async" src="'+th.img+'" alt="Criativo">'+
  (th.video?'<span class="vtag">vídeo</span>':'<span class="vtag est">estático</span>');
  m.querySelector('.mtit').textContent=a.ad||'';
  m.querySelector('.mcamp').textContent=a.camp||'';
@@ -1195,7 +1195,7 @@ document.addEventListener('keydown', function(e){if(e.key==='Escape') fechaPrint
 Array.prototype.forEach.call(document.querySelectorAll('figure[data-p]'), function(f){
  var k=f.getAttribute('data-p');
  if(!PRINTS[k]) return;
- f.innerHTML='<img loading="lazy" decoding="async" src="'+PRINTS[k]+'" alt="Conversa real no Syonet, dados do cliente tarjados">'+
+ f.innerHTML='<img decoding="async" src="'+PRINTS[k]+'" alt="Conversa real no Syonet, dados do cliente tarjados">'+
  '<figcaption>'+(PCAP[k]||'')+'</figcaption>';
  f.addEventListener('click', function(){abrePrint(k)});
  f.addEventListener('keydown', function(e){
