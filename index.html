@@ -483,7 +483,6 @@ td:first-child{font-weight:600}
  <a class="rdot" href="#queda"><i></i><b>A queda</b></a>
  <a class="rdot" href="#crm"><i></i><b>O repasse</b></a>
  <a class="rdot" href="#atendimento"><i></i><b>Atendimento</b></a>
- <a class="rdot" href="#custo"><i></i><b>Custo</b></a>
  <a class="rdot" href="#criativos"><i></i><b>Criativos</b></a>
  <a class="rdot" href="#referencias"><i></i><b>Referências</b></a>
 </nav>
@@ -578,9 +577,8 @@ td:first-child{font-weight:600}
  </div>
  <div class="fnote">
  <h3>Como ler este funil</h3>
- <p><b>Lead Novo</b>: em junho, <b>665 de 665 leads</b> passaram por ela.</p>
- <p>O único degrau humano é <b>Em Atendimento → Encaminhado para Vendas</b>.
- Ele ficou parado: <b>7% em abril e 6% em junho</b>.</p>
+ <p>O repasse <b>subiu de 10% em abril para 18% em junho</b>. A SDR está
+ encaminhando mais.</p>
  <p>E o degrau seguinte, <b>Encaminhado → Visita</b>, recuou de <b>65% para 19%</b>.</p>
  
  <p style="font-size:12px;border-top:1px solid var(--line);padding-top:11px">
@@ -648,58 +646,6 @@ td:first-child{font-weight:600}
 <!-- ============ PROPOSTA ============ -->
 
 <!-- ============ CUSTO ============ -->
-<section id="custo" style="background:var(--surface)">
- <div class="wrap">
- <div class="eyebrow">Custo · simulador</div>
- <h2>Quanto custa fazer certo.</h2>
- <p class="lede">A Taiyo já usa a API oficial. Mexa nos controles para ver o custo
- mensal da proposta inteira. <b>Os valores partem do volume real do Kommo</b>
- (≈160 leads/mês, base de ≈975 contatos acumulados desde fevereiro).</p>
-
- <div class="sim">
- <div>
- <div class="ctrl">
- <label for="s1">Leads novos por mês <b><span id="v1">160</span></b></label>
- <input type="range" id="s1" min="50" max="400" step="10" value="160">
- <p class="hint">O primeiro contato acontece <b>dentro da janela de 24h</b>, enquanto
- o lead ainda está conversando. Esse não custa nada.</p>
- </div>
- <div class="ctrl">
- <label for="s2">Quantos não respondem e recebem o resgate de 24h <b><span id="v2">70</span>%</b></label>
- <input type="range" id="s2" min="0" max="100" step="5" value="70">
- <p class="hint">Depois de 24h a janela fecha e é preciso template. É o primeiro
- item pago da régua.</p>
- </div>
- <div class="ctrl">
- <label for="s3">Base para o disparo mensal <b><span id="v3">975</span></b></label>
- <input type="range" id="s3" min="0" max="4000" step="25" value="975">
- <p class="hint">Contatos fora da janela. Cada um é um template de marketing.</p>
- </div>
- <div class="ctrl">
- <label for="s4">Preço do template de marketing <b>R$ <span id="v4">0,35</span></b></label>
- <input type="range" id="s4" min="30" max="40" step="1" value="35">
- <p class="hint">A Meta passou a cobrar em reais a partir de
- <b>1º de julho de 2026</b>. Confirme o seu valor na fatura do provedor.</p>
- </div>
- </div>
- <div class="total">
- <div class="tl">Custo mensal de API</div>
- <div class="tf" id="tf">R$ 0</div>
- <div class="tsub" id="tsub"></div>
- <div class="tline zero"><span>Primeiro contato, janela de 24h</span><b id="t1">R$ 0</b></div>
- <div class="tline"><span>Resgate de 24h (marketing)</span><b id="t2">R$ 0</b></div>
- <div class="tline"><span>Disparo mensal (marketing)</span><b id="t3">R$ 0</b></div>
- <div class="tctx" id="tctx"></div>
- </div>
- </div>
-
- <div class="pending" style="margin-top:40px">
- <h3>Antes de levar este número como definitivo</h3>
- <p>O preço por mensagem depende do contrato e do provedor (BSP) que a Taiyo usa
- hoje. Vale confirmar na fatura antes de levar este número como definitivo. </p>
- </div>
- </div>
-</section>
 <section id="criativos">
  <div class="wrap">
  <div class="eyebrow">Criativos</div>
@@ -777,8 +723,7 @@ td:first-child{font-weight:600}
  Funil digital, conversão, tempo de perda e repasse: API do Kommo (pipeline "Novos"),
  leads criados entre 01/02 e 16/07/2026. Investimento, CPL e criativos: API do Meta,
  contas Taiyo Novos e Taiyo Pós-vendas. Padrões de atendimento: 9 gravações do Syonet
- (15/07) e 4 conversas de cliente oculto (22/06 a 13/07). Preços de mensagem:
- documentação pública da Meta. Referências de criativo: board da Trilha no Pinterest
+ (15/07) e 4 conversas de cliente oculto (22/06 a 13/07). Referências de criativo: board da Trilha no Pinterest
  e perfis de outras concessionárias Honda.
  </p>
  <p class="srcs">
@@ -835,14 +780,11 @@ var MESES=[
 ];
 
 var FUNIL={
- 'Abril':{tot:291,st:[['Lead Novo',283,1],
- ['Em Atendimento',283],
+ 'Abril':{tot:198,st:[['Leads',198],
  ['Encaminhado p/ Vendas',20],['Visita / Test-drive',13],['Aguardando Fat.',8],['Venda',7]]},
- 'Maio':{tot:694,st:[['Lead Novo',671,1],
- ['Em Atendimento',670],
+ 'Maio':{tot:226,st:[['Leads',226],
  ['Encaminhado p/ Vendas',49],['Visita / Test-drive',13],['Aguardando Fat.',2],['Venda',2]]},
- 'Junho':{tot:665,st:[['Lead Novo',665,1],
- ['Em Atendimento',664],
+ 'Junho':{tot:241,st:[['Leads',241],
  ['Encaminhado p/ Vendas',43],['Visita / Test-drive',8],['Aguardando Fat.',2],['Venda',2]]}
 };
 
@@ -915,7 +857,7 @@ function setFunil(m){
  var dd=document.createElement('div');
  dd.className='drop';
  dd.innerHTML='▼ <b>'+(prev-n)+' leads</b> não passam daqui, '+
- Math.round((prev-n)/prev*100)+'% de tudo que o bot atendeu';
+ Math.round((prev-n)/prev*100)+'% dos leads do mês';
  fEl.appendChild(dd);
  }
  });
@@ -924,29 +866,6 @@ setFunil('Junho');
 
 function esc(s){var d=document.createElement('div');d.textContent=s;return d.innerHTML}
 
-/* ---------- simulador ---------- */
-var S=['s1','s2','s3','s4'].map(function(i){return document.getElementById(i)});
-function sim(){
- var leads=+S[0].value, pctResgate=+S[1].value, base=+S[2].value, pm=+S[3].value/100;
- var resgates=Math.round(leads*pctResgate/100);
- var cResgate=resgates*pm, cBase=base*pm, tot=cResgate+cBase;
- document.getElementById('v1').textContent=leads;
- document.getElementById('v2').textContent=pctResgate;
- document.getElementById('v3').textContent=base;
- document.getElementById('v4').textContent=pm.toFixed(2).replace('.',',');
- document.getElementById('t1').textContent='R$ 0';
- document.getElementById('t2').textContent='R$ '+Math.round(cResgate).toLocaleString('pt-BR');
- document.getElementById('t3').textContent='R$ '+Math.round(cBase).toLocaleString('pt-BR');
- document.getElementById('tf').textContent='R$ '+Math.round(tot).toLocaleString('pt-BR');
- document.getElementById('tsub').textContent='≈ R$ '+Math.round(tot*12).toLocaleString('pt-BR')+' por ano';
- var ticket=1315282/8;
- document.getElementById('tctx').innerHTML='O custo mensal inteiro equivale a <b>'+
- (tot/ticket*100).toFixed(2).replace('.',',')+'%</b> do valor de <b>uma única venda</b> '+
- '(ticket médio de abril: R$ '+Math.round(ticket).toLocaleString('pt-BR')+'). '+
- 'O primeiro contato dos '+leads+' leads do mês não custa mensagem: acontece dentro da janela de 24h.';
-}
-S.forEach(function(s){s.addEventListener('input',sim)});
-sim();
 
 
 
