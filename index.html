@@ -458,6 +458,15 @@ td:first-child{font-weight:600}
 .wmsub{margin-left:35px}
 @media (max-width:820px){.wmsym{width:22px;height:22px}.wmsub{margin-left:31px}}
 
+/* abre/fecha a tabela dos meses */
+.tog{display:inline-flex;align-items:center;gap:9px;margin-top:26px}
+.togc{width:0;height:0;flex:none;border-left:5px solid transparent;border-right:5px solid transparent;
+ border-top:6px solid currentColor;transition:transform .18s ease}
+.tog[aria-expanded="false"] .togc{transform:rotate(-90deg)}
+#wrapMeses[hidden]{display:none}
+#wrapMeses .tscroll{margin-top:18px}
+@media (prefers-reduced-motion:reduce){.togc{transition:none}}
+
 </style>
 
 <button class="themer" id="themer" aria-label="Alternar tema">◐</button>
@@ -523,6 +532,10 @@ td:first-child{font-weight:600}
  <p class="lede">Junho gerou <b>157 leads, mais que abril</b>, por um CPL até menor,
  e com investimento praticamente igual.</p>
 
+ <button class="ftab tog" id="togMeses" type="button" aria-expanded="true" aria-controls="wrapMeses">
+ <span class="togc" aria-hidden="true"></span><span class="toglab">Ocultar a tabela</span>
+ </button>
+ <div id="wrapMeses">
  <div class="tscroll">
  <table>
  <thead><tr><th>Mês</th><th>Leads</th><th>Investimento (fundo)</th><th>CPL</th><th>Vendas de mídia</th><th>Conversão</th><th>Custo por venda</th><th>Receita</th><th>ROAS</th></tr></thead>
@@ -533,6 +546,7 @@ td:first-child{font-weight:600}
  <b>Investimento, CPL, custo por venda e ROAS usam só
  campanhas de fundo de funil</b>; meio de funil e marca ficam de fora.
  </p>
+ </div>
 
  <div class="pullwrap">
  <div>
@@ -1167,5 +1181,16 @@ Array.prototype.forEach.call(document.querySelectorAll('figure[data-p]'), functi
  if(e.key==='Enter'||e.key===' '){e.preventDefault();abrePrint(k)}
  });
 });
+
+/* ---------- abre/fecha a tabela dos meses ---------- */
+var tg=document.getElementById('togMeses'), wp=document.getElementById('wrapMeses');
+if(tg&&wp){
+ tg.addEventListener('click', function(){
+ var aberto = tg.getAttribute('aria-expanded')==='true';
+ tg.setAttribute('aria-expanded', String(!aberto));
+ wp.hidden = aberto;
+ tg.querySelector('.toglab').textContent = aberto ? 'Ver a tabela' : 'Ocultar a tabela';
+ });
+}
 })();
 </script>
